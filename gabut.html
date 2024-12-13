@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendship Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .message-container {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #95a5a6;
+            border-radius: 10px;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            max-width: 600px;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.9) translateY(-30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+        .message {
+            white-space: pre-line;
+            text-align: left;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: skewX(-45deg);
+            transition: left 0.3s;
+        }
+        .btn:hover::after {
+            left: 100%;
+        }
+        .message-container.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            animation: pop-in 0.5s ease;
+        }
+
+        @keyframes pop-in {
+            0% {
+                transform: scale(0.8) translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0px 0px 10px rgba(52, 152, 219, 0.5);
+            }
+            50% {
+                box-shadow: 0px 0px 20px rgba(52, 152, 219, 1);
+            }
+            100% {
+                box-shadow: 0px 0px 10px rgba(52, 152, 219, 0.5);
+            }
+        }
+
+        h1 {
+            animation: glow 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>😊 GABUT NAYY, HUHHH 😊</h1>
+    <button class="btn" onclick="showMessage()">Buka</button>
+
+    <div class="message-container" id="messageContainer">
+        <p class="message" id="messageText">
+            Ada sebuah kalimat "setiap orang ada masanya dan setiap masa ada orangnya", aku tau kita ngga selamanya bakal terus-terusan bareng. Aku gatau sampai kapan kita berteman, tapi terima kasih sudah hadir di hidup aku ya! terima kasih sudah jadi sahabat terbaik buat aku selama ini, sudah dengerin semua keluh kesah aku, terima kasih juga sudah selalu jadi support sistem terbaik sejauh ini.
+
+            Bagaimanapun ending persahabatan kita nanti, aku senang bisa kenal orang sebaik kamuu, punya sahabat yang bener-bener peduli saat aku sakit. I'm so happy and I'm so lucky to be your best friend, I hope we continue to be together.
+
+            Kita berjuang sama-sama yaa, ngga boleh nyerah, nanti siapa yang aku ajak ngegalau kalo kamu ngga ada. huhuhu sama-sama semangat anak kos. Kalo lagi ada masalah cerita yaa. Love you ❤️
+        </p>
+    </div>
+
+    <script>
+        function showMessage() {
+            const messageContainer = document.getElementById('messageContainer');
+            messageContainer.style.display = 'block';
+            setTimeout(() => {
+                messageContainer.classList.add('active');
+            }, 10); // Small delay to ensure transition applies
+        }
+    </script>
+</body>
+</html>
